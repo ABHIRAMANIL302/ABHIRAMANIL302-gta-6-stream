@@ -1058,7 +1058,7 @@
                     <path d="M8 5v14l11-7z"/>
                 </svg>
                 GTA VICE CITY GAMEPLAY
-            </span><br>CONTINUE IN
+            </span><br>STARTS IN
         </div>
         <div class="event-timer-grid">
             <div class="event-timer-card">
@@ -1219,6 +1219,11 @@
             </div>
 
             <div class="form-group">
+                <label for="inputEventDate">Vice City Gameplay Date & Time</label>
+                <input type="datetime-local" id="inputEventDate" class="form-input">
+            </div>
+
+            <div class="form-group">
                 <label for="inputLiveText">Live Badge Text</label>
                 <input type="text" id="inputLiveText" class="form-input" placeholder="LIVE">
             </div>
@@ -1367,7 +1372,8 @@
             channelName: "RAMGD",
             countdownTopic: "GTA 6 TRAILER 3",
             tickerText: "🔥 PRE-ORDER STARTED • LIVE ON RAMGD • COUNTDOWN FOR GTA 6 TRAILER 3 🔥",
-            targetDate: "2026-06-26T11:45",
+            targetDate: "2026-06-29T00:00",
+            eventTargetDate: "2026-06-26T15:00",
             liveText: "LIVE",
             accentColor: "#ff007f",
             accentColorRgb: "255,0,127",
@@ -1444,6 +1450,7 @@
         const inputTopic = document.getElementById("inputTopic");
         const inputTicker = document.getElementById("inputTicker");
         const inputDate = document.getElementById("inputDate");
+        const inputEventDate = document.getElementById("inputEventDate");
         const inputLiveText = document.getElementById("inputLiveText");
         const inputDim = document.getElementById("inputDim");
         const inputBlur = document.getElementById("inputBlur");
@@ -1531,6 +1538,7 @@
             inputTopic.value = config.countdownTopic;
             inputTicker.value = config.tickerText;
             inputDate.value = config.targetDate;
+            inputEventDate.value = config.eventTargetDate;
             inputLiveText.value = config.liveText;
             inputDim.value = config.bgDim;
             dimVal.textContent = `${config.bgDim}%`;
@@ -1684,6 +1692,7 @@
             config.countdownTopic = inputTopic.value.trim() || DEFAULT_CONFIG.countdownTopic;
             config.tickerText = inputTicker.value.trim() || DEFAULT_CONFIG.tickerText;
             config.targetDate = inputDate.value;
+            config.eventTargetDate = inputEventDate.value;
             config.liveText = inputLiveText.value.trim() || DEFAULT_CONFIG.liveText;
 
             config.bgDim = parseInt(inputDim.value);
@@ -1724,12 +1733,11 @@
 
 
         /* COUNTDOWN TIMER LOGIC */
-        const eventTargetDate = "2026-06-26T11:45"; // independent timer
 
         function updateTimer() {
             let now = new Date().getTime();
             let mainTarget = new Date(config.targetDate).getTime();
-            let eventTarget = new Date(eventTargetDate).getTime();
+            let eventTarget = new Date(config.eventTargetDate).getTime();
 
             let mainDiff = mainTarget - now;
             let eventDiff = eventTarget - now;
