@@ -1081,7 +1081,7 @@
                     <path d="M8 5v14l11-7z"/>
                 </svg>
                 NEXT GAME
-            </span><br>GTA SAN ANDREAS
+            </span><br>GTA VICE CITY
         </div>
     </div>
 
@@ -1122,7 +1122,7 @@
         <!-- Central Timer Panel -->
         <div class="center-container">
             <div id="channelName" class="logo-text">RAMGD</div>
-            <div id="countdownTopic" class="topic-text">GTA SAN ANDREAS</div>
+            <div id="countdownTopic" class="topic-text">GTA VICE CITY</div>
             <div id="subtitleText" style="font-size:15px; font-weight:700; letter-spacing:3px; color:rgba(255,255,255,0.55); text-transform:uppercase; margin-top:-20px; margin-bottom:18px;">FINISHING GTA GAMES BEFORE GTA 6</div>
 
 
@@ -1389,8 +1389,8 @@
         // Default settings config schema
         const DEFAULT_CONFIG = {
             channelName: "RAMGD",
-            countdownTopic: "GTA SAN ANDREAS",
-            tickerText: "🔥 FINISHING GTA GAMES BEFORE GTA 6 • LIVE ON RAMGD • NEXT: GTA SAN ANDREAS 🔥",
+            countdownTopic: "GTA VICE CITY",
+            tickerText: "🔥 FINISHING GTA GAMES BEFORE GTA 6 • LIVE ON RAMGD • NEXT: GTA VICE CITY 🔥",
             targetDate: "2026-06-29T00:00",
             eventTargetDate: "2026-06-26T15:00",
             liveText: "LIVE",
@@ -1799,30 +1799,8 @@
         setInterval(updateTimer, 1000);
         updateTimer();
 
-        // Banner Flip Logic
-        const flippingBanner = document.getElementById("flippingBanner");
-        let isPreorderState = true;
+        // Banner flip logic removed to keep the main text static on Vice City.
 
-        setInterval(() => {
-            if (!flippingBanner) return;
-            
-            // Start flip out
-            flippingBanner.classList.remove("flip-in-anim");
-            flippingBanner.classList.add("flip-out-anim");
-            
-            setTimeout(() => {
-                isPreorderState = !isPreorderState;
-                if (isPreorderState) {
-                    flippingBanner.innerHTML = '<span class="pulse-icon">🔴</span> GTA VICE CITY CONTINUE IN';
-                } else {
-                    flippingBanner.innerHTML = '<span class="pulse-icon">🎮</span> NEXT: GTA SAN ANDREAS';
-                }
-                
-                // Flip in
-                flippingBanner.classList.remove("flip-out-anim");
-                flippingBanner.classList.add("flip-in-anim");
-            }, 400); // Wait for half flip
-        }, 5000); // Toggle every 5 seconds
 
 
         /* HTML5 CANVAS NEON EMBER PARTICLES */
