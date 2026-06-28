@@ -506,6 +506,26 @@
             animation: floatUpAndDown 8s ease-in-out infinite;
         }
 
+        .floating-card-left {
+            position: absolute;
+            top: 25%;
+            left: 40px;
+            width: 320px;
+            background: rgba(18, 12, 28, 0.7);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 2px solid rgba(var(--accent-color-rgb), 0.6);
+            border-radius: 20px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6), var(--neon-glow);
+            z-index: 15;
+            animation: floatUpAndDown 8s ease-in-out infinite;
+            animation-delay: -4s;
+        }
+
         @keyframes floatUpAndDown {
             0% { transform: translateY(0px); }
             50% { transform: translateY(-120px); }
@@ -1046,33 +1066,22 @@
         <span class="disc-icon">💿</span> <span id="audioPromptText">Now Playing</span>
     </div>
 
+
     <!-- Floating Event Card -->
     <div id="floatingEventCard" class="floating-card">
-        <div class="floating-card-label">SPECIAL EVENT</div>
+
+
+        <div class="floating-card-label">COMING UP NEXT</div>
         <div class="floating-card-img-container">
-            <img class="floating-card-img" src="images.jpg" alt="GTA Vice City Gameplay">
+            <img class="floating-card-img" src="game_37.jpg" alt="GTA San Andreas">
         </div>
         <div class="floating-card-desc">
             <span style="display: inline-flex; align-items: center; gap: 8px; justify-content: center;">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--accent-color)" style="filter: drop-shadow(0 0 8px rgba(var(--accent-color-rgb), 0.8));">
                     <path d="M8 5v14l11-7z"/>
                 </svg>
-                GTA VICE CITY GAMEPLAY
-            </span><br>STARTS IN
-        </div>
-        <div class="event-timer-grid">
-            <div class="event-timer-card">
-                <div id="eventHours" class="event-timer-number">00</div>
-                <div class="event-timer-label">HRS</div>
-            </div>
-            <div class="event-timer-card">
-                <div id="eventMinutes" class="event-timer-number">00</div>
-                <div class="event-timer-label">MIN</div>
-            </div>
-            <div class="event-timer-card">
-                <div id="eventSeconds" class="event-timer-number">00</div>
-                <div class="event-timer-label">SEC</div>
-            </div>
+                NEXT GAME
+            </span><br>GTA SAN ANDREAS
         </div>
     </div>
 
@@ -1088,25 +1097,43 @@
             <div class="side-card-footer">Pre-Order Now</div>
         </div>
 
-        <!-- Left Poster Card -->
-        <div id="leftCard" class="side-card">
-            <div class="side-card-label">Up Next</div>
-            <div class="side-card-img-container">
-                <img class="side-card-img" src="" alt="GTA 6 Slide">
+        <!-- Left Wrapper -->
+        <div style="display: flex; flex-direction: column; gap: 15px; margin-right: -10px; align-items: center; max-width: 340px; justify-content: flex-end;">
+            
+            <!-- Vice City Image Card -->
+            <div class="side-card" style="height: 180px; width: 100%; max-width: 340px; padding: 10px; margin: 0; box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), var(--neon-glow); border: 2px solid rgba(var(--accent-color-rgb), 0.5); justify-content: space-between;">
+                <div class="side-card-label" style="font-size: 12px; margin-bottom: 6px;">Now Playing</div>
+                <div class="side-card-img-container" style="height: 100%; width: 100%; border: none; box-shadow: none; border-radius: 12px;">
+                    <img src="images.jpg" alt="GTA Vice City" style="width: 100%; height: 100%; display: block; object-fit: cover; border-radius: 12px;">
+                </div>
+                <div class="side-card-footer" style="margin-top: 6px;">GTA Vice City</div>
             </div>
-            <div class="side-card-footer">Next In Queue</div>
+
+            <!-- Left Poster Card -->
+            <div id="leftCard" class="side-card" style="margin: 0; border-radius: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08);">
+                <div class="side-card-label">Up Next</div>
+                <div class="side-card-img-container">
+                    <img class="side-card-img" src="" alt="GTA 6 Slide">
+                </div>
+                <div class="side-card-footer">Next In Queue</div>
+            </div>
         </div>
 
         <!-- Central Timer Panel -->
         <div class="center-container">
             <div id="channelName" class="logo-text">RAMGD</div>
-            <div id="countdownTopic" class="topic-text">GTA 6 TRAILER 3</div>
+            <div id="countdownTopic" class="topic-text">GTA SAN ANDREAS</div>
+            <div id="subtitleText" style="font-size:15px; font-weight:700; letter-spacing:3px; color:rgba(255,255,255,0.55); text-transform:uppercase; margin-top:-20px; margin-bottom:18px;">FINISHING GTA GAMES BEFORE GTA 6</div>
+
+
 
             <div style="perspective: 1000px; margin-bottom: 20px;">
                 <div class="preorder-live-banner" id="flippingBanner" style="font-size: 28px;">
-                    <span class="pulse-icon">🔴</span> PRE-ORDER STARTED
+                    <span class="pulse-icon">🔴</span> GTA VICE CITY CONTINUE IN
                 </div>
             </div>
+
+            <div style="font-size:13px; font-weight:800; letter-spacing:4px; color:var(--accent-color); text-transform:uppercase; margin-bottom:8px; opacity:0.9;">THE GAME CONTINUES IN</div>
 
             <div class="timer-grid" id="timerContainer">
                 <div class="timer-card">
@@ -1137,14 +1164,6 @@
             <div class="side-card-footer">Later In Queue</div>
         </div>
 
-        <!-- Edition 2 Card -->
-        <div id="edition2Card" class="side-card">
-            <div class="side-card-label">Ultimate Edition</div>
-            <div class="side-card-img-container">
-                <img class="side-card-img" src="EDITION.png" alt="GTA VI Ultimate Edition">
-            </div>
-            <div class="side-card-footer">Pre-Order Now</div>
-        </div>
 
     </div>
 
@@ -1157,8 +1176,8 @@
     <div class="footer-ticker-container">
         <div class="ticker-wrap">
             <div id="marqueeTicker" class="ticker">
-                <span>🔥 PRE-ORDER STARTED • LIVE ON RAMGD • COUNTDOWN FOR GTA 6 TRAILER 3 🔥</span>
-                <span>🔥 PRE-ORDER STARTED • LIVE ON RAMGD • COUNTDOWN FOR GTA 6 TRAILER 3 🔥</span>
+                <span>🔥 FINISHING GTA GAMES BEFORE GTA 6 • LIVE ON RAMGD • NEXT: GTA SAN ANDREAS 🔥</span>
+                <span>🔥 FINISHING GTA GAMES BEFORE GTA 6 • LIVE ON RAMGD • NEXT: GTA SAN ANDREAS 🔥</span>
             </div>
         </div>
     </div>
@@ -1370,8 +1389,8 @@
         // Default settings config schema
         const DEFAULT_CONFIG = {
             channelName: "RAMGD",
-            countdownTopic: "GTA 6 TRAILER 3",
-            tickerText: "🔥 PRE-ORDER STARTED • LIVE ON RAMGD • COUNTDOWN FOR GTA 6 TRAILER 3 🔥",
+            countdownTopic: "GTA SAN ANDREAS",
+            tickerText: "🔥 FINISHING GTA GAMES BEFORE GTA 6 • LIVE ON RAMGD • NEXT: GTA SAN ANDREAS 🔥",
             targetDate: "2026-06-29T00:00",
             eventTargetDate: "2026-06-26T15:00",
             liveText: "LIVE",
@@ -1794,9 +1813,9 @@
             setTimeout(() => {
                 isPreorderState = !isPreorderState;
                 if (isPreorderState) {
-                    flippingBanner.innerHTML = '<span class="pulse-icon">🔴</span> PRE-ORDER STARTED';
+                    flippingBanner.innerHTML = '<span class="pulse-icon">🔴</span> GTA VICE CITY CONTINUE IN';
                 } else {
-                    flippingBanner.innerHTML = '<span class="pulse-icon">📸</span> COUNTDOWN FOR GTA 6 TRAILER 3';
+                    flippingBanner.innerHTML = '<span class="pulse-icon">🎮</span> NEXT: GTA SAN ANDREAS';
                 }
                 
                 // Flip in
@@ -2046,15 +2065,9 @@
             if (showStandard) {
                 document.getElementById("edition1Card").style.visibility = "visible";
                 document.getElementById("edition1Card").style.opacity = "1";
-                
-                document.getElementById("edition2Card").style.visibility = "hidden";
-                document.getElementById("edition2Card").style.opacity = "0";
             } else {
                 document.getElementById("edition1Card").style.visibility = "hidden";
                 document.getElementById("edition1Card").style.opacity = "0";
-
-                document.getElementById("edition2Card").style.visibility = "visible";
-                document.getElementById("edition2Card").style.opacity = "1";
             }
 
             if (isInit) {
